@@ -14,3 +14,9 @@ RUN apt-get update
 RUN apt-get install -y php7.0 php7.0-mysql php7.0-curl php7.0-mbstring php7.0-bcmath php7.0-dom php7.0-zip
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
+
+#Install Surf
+RUN composer global config minimum-stability beta
+RUN composer global config prefer-stable true
+RUN composer global require typo3/surf:^2.0.0
+RUN ln -s /root/.composer/vendor/typo3/surf/surf /usr/local/bin/surf
