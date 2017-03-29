@@ -16,7 +16,5 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 
 
 #Install Surf
-RUN composer global config minimum-stability beta
-RUN composer global config prefer-stable true
-RUN composer global require typo3/surf:^2.0.0
-RUN ln -s /root/.composer/vendor/typo3/surf/surf /usr/local/bin/surf
+ADD surf.phar /usr/local/bin/surf
+RUN chmod +x /usr/local/bin/surf
