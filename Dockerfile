@@ -18,3 +18,8 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 #Install Surf
 ADD surf.phar /usr/local/bin/surf
 RUN chmod +x /usr/local/bin/surf
+
+
+#Install NodeJS
+RUN curl -sL https://deb.nodesource.com/setup_6.x | bash -
+RUN apt-get install -y nodejs
