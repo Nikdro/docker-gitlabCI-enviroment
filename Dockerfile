@@ -2,11 +2,11 @@ FROM debian:8
 
 RUN echo "Europe/Berlin" > /etc/timezone && dpkg-reconfigure -f noninteractive tzdata
 RUN apt-get update
-RUN apt-get install -y curl git apt-transport-https zip lsb-release ca-certificates wget
+RUN apt-get install -y curl git apt-transport-https zip lsb-release ca-certificates 
 
 
 #Add sury to apt
-RUN wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
+RUN curl https://packages.sury.org/php/apt.gpg | apt-key add -
 RUN echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list
 RUN apt-get update
 
