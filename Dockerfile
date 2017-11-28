@@ -2,16 +2,16 @@ FROM debian:8
 
 RUN echo "Europe/Berlin" > /etc/timezone && dpkg-reconfigure -f noninteractive tzdata
 RUN apt-get update
-RUN apt-get install -y curl git apt-transport-https zip
+RUN apt-get install -y curl git apt-transport-https zip lsb-release ca-certificates wget
 
 
-#Add dotdeb to apt
-RUN echo 'deb http://packages.dotdeb.org jessie all' > /etc/apt/sources.list.d/dotdeb.list
-RUN curl http://www.dotdeb.org/dotdeb.gpg | apt-key add -
+#Add sury to apt
+RUN wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
+RUN echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list
 RUN apt-get update
 
 #Install PHP & composer
-RUN apt-get install -y php7.0 php7.0-mysql php7.0-curl php7.0-mbstring php7.0-bcmath php7.0-dom php7.0-zip
+RUN apt-get install -y php7.1 php7.1-mysql php7.1-curl php7.1-mbstring php7.1-bcmath php7.1-dom php7.1-zip
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 
