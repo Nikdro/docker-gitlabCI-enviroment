@@ -5,7 +5,7 @@ RUN apt-get update
 RUN apt-get install -y curl git apt-transport-https zip
 
 
-#Add dotdeb to apt
+#Add dotdeb
 RUN echo 'deb http://packages.dotdeb.org jessie all' > /etc/apt/sources.list.d/dotdeb.list
 RUN curl http://www.dotdeb.org/dotdeb.gpg | apt-key add -
 RUN apt-get update
