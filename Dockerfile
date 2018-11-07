@@ -11,7 +11,7 @@ RUN echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt
 RUN apt-get update
 
 #Install PHP & composer
-RUN apt-get install -y php7.1 php7.1-mysql php7.1-curl php7.1-mbstring php7.1-bcmath php7.1-dom php7.1-zip
+RUN apt-get install -y php7.1 php7.1-mysql php7.1-curl php7.1-mbstring php7.1-bcmath php7.1-dom php7.1-zip php7.1-gd
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 
