@@ -2,7 +2,7 @@ FROM php:7.3-cli
 
 #Install dependencies
 RUN apt-get update
-RUN apt-get install -y openssh-client zip zlib1g-dev libzip-dev libpng-dev git
+RUN apt-get install -y openssh-client zip zlib1g-dev libzip-dev libpng-dev git rsync
 
 #Install docker extensions
 RUN docker-php-ext-install zip
