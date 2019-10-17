@@ -13,6 +13,7 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 
 #Install Surf
 ADD surf.phar /usr/local/bin/surf
+ADD conf.d/* /usr/local/etc/php/conf.d/
 RUN chmod +x /usr/local/bin/surf
 
 
