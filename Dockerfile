@@ -17,4 +17,6 @@ ADD surf.phar /usr/local/bin/surf
 ADD conf.d/* /usr/local/etc/php/conf.d/
 RUN chmod +x /usr/local/bin/surf
 
-
+#Install LTS Node/NPM
+RUN curl -sL https://deb.nodesource.com/setup_lts.x | bash -
+RUN apt-get install -y nodejs
